@@ -7,17 +7,20 @@ namespace BellringingKata
 	[TestFixture]
 	public class BellringingKataTests
 	{
-		[Test]
-		public void Should_return_1_as_the_first_bell()
-		{
-			var actual = GetBells().First();
 
-			Assert.That(actual, Is.EqualTo(1));
+		[TestCase(0, 1)]
+		[TestCase(1, 2)]
+		public void AssertIsExpectedBell(int bellIndex, int bellNumber)
+		{
+			var actual = GetBells().ElementAt(bellIndex);
+
+			Assert.That(actual, Is.EqualTo(bellNumber));
 		}
 
 		private IEnumerable<int> GetBells()
 		{
 			yield return 1;
+			yield return 2;
 		}
 	}
 }
