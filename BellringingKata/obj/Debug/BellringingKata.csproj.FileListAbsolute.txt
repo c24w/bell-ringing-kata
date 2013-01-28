@@ -1,0 +1,7 @@
+C:\work\BellringingKata\BellringingKata\bin\Debug\BellringingKata.dll
+C:\work\BellringingKata\BellringingKata\bin\Debug\BellringingKata.pdb
+C:\work\BellringingKata\BellringingKata\bin\Debug\nunit.framework.dll
+C:\work\BellringingKata\BellringingKata\bin\Debug\nunit.framework.xml
+C:\work\BellringingKata\BellringingKata\obj\Debug\BellringingKata.csprojResolveAssemblyReference.cache
+C:\work\BellringingKata\BellringingKata\obj\Debug\BellringingKata.dll
+C:\work\BellringingKata\BellringingKata\obj\Debug\BellringingKata.pdb
