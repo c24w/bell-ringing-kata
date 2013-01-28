@@ -33,19 +33,17 @@ namespace BellringingKata
 
 		private static IEnumerable<int> GetBells()
 		{
-			var currentBell = 1;
-			while (currentBell < 9)
+			var bells = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+			foreach (var bellNumber in bells)
 			{
-				yield return currentBell++;
+				yield return bellNumber;
 			}
-			yield return 2;
-			yield return 1;
-			yield return 4;
-			yield return 3;
-			yield return 6;
-			yield return 5;
-			yield return 8;
-			yield return 7;
+
+			for (var i = 0; i < bells.Length; i+=2)
+			{
+				yield return bells[i + 1];
+				yield return bells[i];
+			}
 		}
 	}
 }
