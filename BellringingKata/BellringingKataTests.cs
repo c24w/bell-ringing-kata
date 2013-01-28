@@ -16,17 +16,36 @@ namespace BellringingKata
 		[TestCase(5, 6)]
 		[TestCase(6, 7)]
 		[TestCase(7, 8)]
-		public void AssertIsExpectedBell(int bellIndex, int bellNumber)
+		public void First_eight_bells_shoud_return_the_expected_number(int bellIndex, int bellNumber)
 		{
 			var actual = GetBells().ElementAt(bellIndex);
 
 			Assert.That(actual, Is.EqualTo(bellNumber));
 		}
 
-		private IEnumerable<int> GetBells()
+		[Test]
+		public void Sequence_9_to_16_should_return_the_expected_sequence()
+		{
+			var actual = GetBells().Skip(8).Take(8).ToArray();
+
+			Assert.That(actual, Is.EqualTo(new[] { 2, 1, 4, 3, 6, 5, 8, 7 }));
+		}
+
+		private static IEnumerable<int> GetBells()
 		{
 			var currentBell = 1;
-			while (true) yield return currentBell++;
+			while (currentBell < 9)
+			{
+				yield return currentBell++;
+			}
+			yield return 2;
+			yield return 1;
+			yield return 4;
+			yield return 3;
+			yield return 6;
+			yield return 5;
+			yield return 8;
+			yield return 7;
 		}
 	}
 }
