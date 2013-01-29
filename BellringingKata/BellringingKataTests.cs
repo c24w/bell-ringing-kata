@@ -31,19 +31,37 @@ namespace BellringingKata
 			Assert.That(actual, Is.EqualTo(new[] { 2, 1, 4, 3, 6, 5, 8, 7 }));
 		}
 
+		[Test]
+		public void Sequence_10_to_18_should_return_the_expected_sequence()
+		{
+			var actual = GetBells().Skip(16).Take(8).ToArray();
+
+			Assert.That(actual, Is.EqualTo(new[] { 2, 4, 1, 6, 3, 8, 5, 7 }));
+		}
+
 		private static IEnumerable<int> GetBells()
 		{
 			var bells = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+
 			foreach (var bellNumber in bells)
 			{
 				yield return bellNumber;
 			}
 
-			for (var i = 0; i < bells.Length; i+=2)
+			for (var i = 0; i < bells.Length; i += 2)
 			{
 				yield return bells[i + 1];
 				yield return bells[i];
 			}
+
+			bells = new[] { 2, 1, 4, 3, 6, 5, 8, 7 };
+			yield return bells[0];
+			for (var i = 1; i < bells.Length - 1; i += 2)
+			{
+				yield return bells[i + 1];
+				yield return bells[i];
+			}
+			yield return bells[7];
 		}
 	}
 }
